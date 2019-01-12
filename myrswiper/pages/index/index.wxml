@@ -1,0 +1,37 @@
+<!--index.wxml-->
+
+<view class="myview {{isChange?'change':''}}"></view>
+<view class="parent">
+  <block wx:for="{{imgList}}" wx:key="*this">
+    <!-- 左边的 style="transform:translateX(100rpx) rotateY(80deg) scale(2,2);"-->
+    <block wx:if="{{index == pre}}">
+      <view class="child">
+        <image class="child-img" src="{{item}}" style="transform:translateX({{tra}}rpx) rotateY({{rot}}deg) scale({{sca}},{{sca}});"></image>
+      </view>
+    </block>
+    <!-- 中间的 -->
+    <block wx:elif="{{index == current}}">
+      <view class="child">
+        <image class="child-img" src="{{item}}"></image>
+      </view>
+    </block>
+    <!-- 右边的 -->
+    <block wx:elif="{{index == next}}">
+      <view class="child">
+        <image class="child-img" src="{{item}}"></image>
+      </view>
+    </block>
+    <!-- 左边备用的 -->
+    <block wx:elif="{{index == lspare}}">
+      <view class="child">
+        <image class="child-img" src="{{item}}"></image>
+      </view>
+    </block>
+    <!-- 右边备用的 -->
+    <block wx:elif="{{index == rspare}}">
+      <view class="child">
+        <image class="child-img" src="{{item}}"></image>
+      </view>
+    </block>
+  </block>
+</view>
