@@ -21,14 +21,8 @@
         <image class="child-img" src="{{item}}"></image>
       </view>
     </block>
-    <!-- 左边备用的 -->
-    <block wx:elif="{{index == lspare}}">
-      <view class="child">
-        <image class="child-img" src="{{item}}"></image>
-      </view>
-    </block>
-    <!-- 右边备用的 -->
-    <block wx:elif="{{index == rspare}}">
+    <!-- 备用的 -->
+    <block wx:elif="{{index == spare}}">
       <view class="child">
         <image class="child-img" src="{{item}}"></image>
       </view>

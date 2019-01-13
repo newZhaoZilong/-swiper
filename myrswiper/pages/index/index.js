@@ -14,11 +14,11 @@ Page({
     pre:0
   },
   onLoad(){
-    setTimeout(()=>{
-      this.setData({
-        isChange: !this.data.isChange
-      })
-    },2000);
+    var a = 20;
+    while(a>10){
+      console.log(a);
+      a--;
+    }
   },
   /**
    * 根据不同的指令更新view的状态
@@ -26,5 +26,32 @@ Page({
   updateState(order){
 
     
+  },
+  /**
+   * 根据当前current的值移动到指定位置,这是一套连续动作
+   * 由moveToNext组成
+   */
+  moveToCurrent(idx){
+    while(this.data.current !== idx){
+      this.moveToNext();
+    }
+  },
+  /**
+   * 从当前角标移动到下个角标
+   */
+  moveToNext(){
+      this.getNextIdxs();
+      this.preAnimation();
+      this.startAnimation();
+      this.updateCurrent;
+  },
+  /**
+   * 获取下个阶段的所有角标
+   */
+  getNextIdxs(){
+    var current = this.data.current;
+    var pre = (current - 1 + this.imgList.length) % this.imgList.length;
+    var next = (current + 1) % this.imgList.length;
+    var spare = (current + 2)% this.imgList.length;
   }
 })
